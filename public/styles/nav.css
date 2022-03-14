@@ -1,21 +1,31 @@
 nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 120px;
   width: 100%;
   background-color: #4056a1;
   color: #ffffff;
 }
 
-nav > span {
-  display: inline-block;
+.logo {
+  margin-right: auto;
   font-family: "Bungee", cursive;
-  margin: 1.5em;
+  padding: 1.5em;
 }
 
-nav > div {
-  float: right;
-  margin: 1.5em;
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em;
 }
 
 i {
   color: red;
+}
+
+i:hover {
+  cursor: pointer;
+  color: black;
 }
