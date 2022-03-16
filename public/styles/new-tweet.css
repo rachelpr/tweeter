@@ -1,0 +1,33 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+button {
+  display: flex;
+  align-items: center;
+  background-color: #4056a1;
+  color: white;
+  font-family: "Bungee", cursive;
+  border-radius: 50%;
+}
+
+output {
+  display: flex;
+  align-items: center;
+  font-family: "Bungee", cursive;
+}
+
+label {
+  border-bottom: 3px solid black;
+}
+
+textarea {
+  resize: none;
+}
