@@ -24,10 +24,9 @@ output {
   font-family: "Bungee", cursive;
 }
 
-label {
-  border-bottom: 3px solid black;
-}
-
 textarea {
-  resize: none;
+  resize: auto;
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 3px solid black;
 }
