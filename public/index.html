@@ -22,13 +22,17 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+    <script
+      type="text/javascript"
+      src="./scripts/composer-char-counter.js"
+    ></script>
 
     <!-- Font Awesome-->
     <link
@@ -70,6 +74,23 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+        <article class="tweet">
+          <header>
+            <a class="name">Rhoda Jacobs</a>
+            <a class="handle">@MrsJacobs</a>
+          </header>
+          <div class="tweet-text">
+            <p>Hello World!</p>
+          </div>
+          <footer>
+            <p>10 days ago</p>
+            <div class="footer-icons">
+              <i class="fa-solid fa-2xs fa-flag"></i>
+              <i class="fa-solid fa-2xs fa-retweet"></i>
+              <i class="fa-solid fa-2xs fa-heart"></i>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
