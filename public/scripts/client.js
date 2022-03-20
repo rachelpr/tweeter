@@ -4,21 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// $(function () {
-//   const $button = $("#load-more-posts");
-//   $button.on("click", function () {
-//     console.log("Button clicked, performing ajax call...");
-//     $.ajax("more-posts.html", { method: "GET" }).then(function (
-//       morePostsHtml
-//     ) {
-//       console.log("Success: ", morePostsHtml);
-//       $button.replaceWith(morePostsHtml);
-//     });
-//   });
-// });
 $(document).ready(function () {
   const createTweetElement = function () {
-    const $tweet = $(`
+    const $tweet = $(`<article class="tweet"></article>`);
+    let $tweetContent = $(`
     <header>
       <a class="name">${tweetData.user.name}</a>
       <a class="handle">${tweetData.user.handle}</a>
@@ -34,7 +23,7 @@ $(document).ready(function () {
               <i class="fa-solid fa-2xs fa-heart"></i>
             </div>
           </footer>`);
-    return $tweet;
+    return $tweet.html($tweetContent);
   };
   // Test / driver code (temporary). Eventually will get this from the server.
   const tweetData = {
