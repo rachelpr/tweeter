@@ -30,6 +30,19 @@ const data = [
   },
 ];
 
+// Submitting a new tweet with our form
+// Preventing it from loading on a new page
+$("#submit-tweet").on("submit", function (event) {
+  let tweet = $("#submit-tweet").serialize();
+  event.preventDefault();
+  $.ajax("/tweets", {
+    method: "POST",
+    data: tweet,
+  });
+  console.log(tweet);
+});
+
+// Rendering the tweets in the tweets-container
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
     let newTweet = createTweetElement(tweet);
@@ -37,6 +50,7 @@ const renderTweets = function (tweets) {
   }
 };
 
+// Function to create the tweet element 
 const createTweetElement = function (tweet) {
   const $tweet = $(`<article class="tweet"></article>`);
   let $tweetContent = $(`
