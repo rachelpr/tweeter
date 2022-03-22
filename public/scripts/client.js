@@ -9,10 +9,18 @@
 $("#submit-tweet").on("submit", function (event) {
   let tweet = $("#submit-tweet").serialize();
   event.preventDefault();
-  $.ajax("/tweets", {
-    method: "POST",
-    data: tweet,
-  });
+  let tweetText = $(this).find("textarea").val();
+  console.log(tweetText);
+  if (tweetText === "" || tweetText === null) {
+    alert("Empty tweet");
+  } else if (tweetText.length > 140) {
+    alert("Tweet too long. Shorten and try again");
+  } else {
+    $.ajax("/tweets", {
+      method: "POST",
+      data: tweet,
+    });
+  }
   console.log(tweet);
 });
 
