@@ -38,6 +38,7 @@ const createTweetElement = function (tweet) {
   let $tweetContent = $(`
   <span>
     <header>
+    <img src="${tweet.user.avatars}"/>
       <a class="name">${tweet.user.name}</a>
       <a class="handle">${tweet.user.handle}</a>
     </header>
