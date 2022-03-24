@@ -6,6 +6,7 @@
 
 // Submitting a new tweet with our form
 // Preventing it from loading on a new page
+// Success method will load new tweet as it is submitted
 $("#submit-tweet").on("submit", function (event) {
   let tweet = $("#submit-tweet").serialize();
   event.preventDefault();
@@ -19,16 +20,19 @@ $("#submit-tweet").on("submit", function (event) {
     $.ajax("/tweets", {
       method: "POST",
       data: tweet,
+      success: function () {
+        $("textarea").val("");
+        loadTweets();
+      },
     });
   }
-  console.log(tweet);
 });
 
 // Rendering the tweets in the tweets-container
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
     let newTweet = createTweetElement(tweet);
-    $("#tweets-container").append(newTweet);
+    $("#tweets-container").prepend(newTweet);
   }
 };
 
@@ -38,7 +42,7 @@ const createTweetElement = function (tweet) {
   let $tweetContent = $(`
   <span>
     <header>
-    <img src="${tweet.user.avatars}"/>
+    <img class="img-avatar" src="${tweet.user.avatars}"/>
       <a class="name">${tweet.user.name}</a>
       <a class="handle">${tweet.user.handle}</a>
     </header>
@@ -57,16 +61,13 @@ const createTweetElement = function (tweet) {
   return $tweet.html($tweetContent);
 };
 
-// Function to load the tweets on the page
-$(document).ready(function () {
-  const loadTweets = function () {
-    let tweet = $("#submit-tweet").serialize();
-    $.ajax("/tweets", {
-      type: "GET",
-      dataType: "JSON",
-    }).then(function (tweets) {
-      renderTweets(tweets);
-    });
-  };
-  loadTweets();
-});
+// Function to load previously submitted tweets on the page
+const loadTweets = function () {
+  $.ajax("/tweets", {
+    type: "GET",
+    dataType: "JSON",
+  }).then(function (tweets) {
+    renderTweets(tweets);
+  });
+};
+loadTweets();
