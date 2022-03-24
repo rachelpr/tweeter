@@ -11,8 +11,8 @@
 //   let tweet = $("#submit-tweet").serialize();
 //   event.preventDefault();
 //   let tweetText = $(this).find("textarea").val();
-//   // if (tweetText === "" || tweetText === null) {
-//   //   alert("Empty tweet");
+//   if (tweetText === "" || tweetText === null) {
+//     alert("Empty tweet");
 //   if (tweetText.length > 140) {
 //     alert("Tweet too long. Shorten and try again");
 //   } else {
@@ -90,16 +90,21 @@ $(document).ready(function () {
       $(".error").text("Error: Please enter a tweet and resubmit");
       $(".error").show(1000);
     } else if (tweetText.length > 140) {
-      $(".error").text("Error: Please enter a tweet under 140 characters and resubmit");
+      $(".error").text(
+        "Error: Please enter a tweet under 140 characters and resubmit"
+      );
       $(".error").show(1000);
     } else {
       $(".error").slideUp(1000);
       $.ajax("/tweets", {
         method: "POST",
         data: tweet,
-        success: function () {
+        success: function (res) {
           $("textarea").val("");
-          loadTweets();
+          let newTweet = createTweetElement(res);
+          $("#tweets-container").prepend(newTweet);
+          //$("#tweets-container").html('');
+          //loadTweets();
         },
       });
     }
