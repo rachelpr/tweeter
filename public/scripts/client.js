@@ -11,7 +11,6 @@ $("#submit-tweet").on("submit", function (event) {
   let tweet = $("#submit-tweet").serialize();
   event.preventDefault();
   let tweetText = $(this).find("textarea").val();
-  console.log(tweetText);
   if (tweetText === "" || tweetText === null) {
     alert("Empty tweet");
   } else if (tweetText.length > 140) {
@@ -36,7 +35,16 @@ const renderTweets = function (tweets) {
   }
 };
 
+// Escape function to prevent XSS on the site
+// Will escape if there is a script trying to be run, and post as text instead
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 // Function to create the tweet element
+// Now includes escape method on the content.text
 const createTweetElement = function (tweet) {
   const $tweet = $(`<article class="tweet"></article>`);
   let $tweetContent = $(`
@@ -47,7 +55,7 @@ const createTweetElement = function (tweet) {
       <a class="handle">${tweet.user.handle}</a>
     </header>
     <div class="tweet-text">
-      <p>${tweet.content.text} </p>
+      <p>${escape(tweet.content.text)} </p>
     </div>
     <footer>
             <p>${timeago.format(tweet.created_at)} </p>
