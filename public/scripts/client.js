@@ -7,25 +7,25 @@
 // Submitting a new tweet with our form
 // Preventing it from loading on a new page
 // Success method will load new tweet as it is submitted
-$("#submit-tweet").on("submit", function (event) {
-  let tweet = $("#submit-tweet").serialize();
-  event.preventDefault();
-  let tweetText = $(this).find("textarea").val();
-  if (tweetText === "" || tweetText === null) {
-    alert("Empty tweet");
-  } else if (tweetText.length > 140) {
-    alert("Tweet too long. Shorten and try again");
-  } else {
-    $.ajax("/tweets", {
-      method: "POST",
-      data: tweet,
-      success: function () {
-        $("textarea").val("");
-        loadTweets();
-      },
-    });
-  }
-});
+// $("#submit-tweet").on("submit", function (event) {
+//   let tweet = $("#submit-tweet").serialize();
+//   event.preventDefault();
+//   let tweetText = $(this).find("textarea").val();
+//   // if (tweetText === "" || tweetText === null) {
+//   //   alert("Empty tweet");
+//   if (tweetText.length > 140) {
+//     alert("Tweet too long. Shorten and try again");
+//   } else {
+//     $.ajax("/tweets", {
+//       method: "POST",
+//       data: tweet,
+//       success: function () {
+//         $("textarea").val("");
+//         loadTweets();
+//       },
+//     });
+//   }
+// });
 
 // Rendering the tweets in the tweets-container
 const renderTweets = function (tweets) {
@@ -79,3 +79,29 @@ const loadTweets = function () {
   });
 };
 loadTweets();
+
+$(document).ready(function () {
+  $(".error").hide();
+  $("#submit-tweet").on("submit", function (event) {
+    let tweet = $("#submit-tweet").serialize();
+    event.preventDefault();
+    let tweetText = $(this).find("textarea").val();
+    if (tweetText === "" || tweetText === null) {
+      $(".error").text("Error: Please enter a tweet and resubmit");
+      $(".error").show(1000);
+    } else if (tweetText.length > 140) {
+      $(".error").text("Error: Please enter a tweet under 140 characters and resubmit");
+      $(".error").show(1000);
+    } else {
+      $(".error").slideUp(1000);
+      $.ajax("/tweets", {
+        method: "POST",
+        data: tweet,
+        success: function () {
+          $("textarea").val("");
+          loadTweets();
+        },
+      });
+    }
+  });
+});
