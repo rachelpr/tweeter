@@ -26,7 +26,7 @@ output {
 }
 
 textarea {
-  resize: auto;
+  resize: none;
   background-color: #f4f1ec;
   border: none;
   border-bottom: 3px solid black;
