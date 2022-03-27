@@ -85,6 +85,7 @@ $(document).ready(function () {
           $("textarea").val("");
           let newTweet = createTweetElement(res);
           $("#tweets-container").prepend(newTweet);
+          $(".counter").text("140");
         },
       });
     }
