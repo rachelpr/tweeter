@@ -48,7 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 120px;
-    width: 66.7%;
+    width: 100%;
   }
 
   .site-header {
@@ -57,12 +57,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 33.3%;
     margin-top: 120px;
     margin-left: 1.5em;
-    margin-right: 1.5em;
-  }
-  .site-header img {
-    padding-top: 1.5em;
   }
 }
