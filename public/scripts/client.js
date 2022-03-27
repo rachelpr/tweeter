@@ -4,29 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Submitting a new tweet with our form
-// Preventing it from loading on a new page
-// Success method will load new tweet as it is submitted
-// $("#submit-tweet").on("submit", function (event) {
-//   let tweet = $("#submit-tweet").serialize();
-//   event.preventDefault();
-//   let tweetText = $(this).find("textarea").val();
-//   if (tweetText === "" || tweetText === null) {
-//     alert("Empty tweet");
-//   if (tweetText.length > 140) {
-//     alert("Tweet too long. Shorten and try again");
-//   } else {
-//     $.ajax("/tweets", {
-//       method: "POST",
-//       data: tweet,
-//       success: function () {
-//         $("textarea").val("");
-//         loadTweets();
-//       },
-//     });
-//   }
-// });
-
 // Rendering the tweets in the tweets-container
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
@@ -44,7 +21,7 @@ const escape = function (str) {
 };
 
 // Function to create the tweet element
-// Now includes escape method on the content.text
+// Includes escape method on the content.text
 const createTweetElement = function (tweet) {
   const $tweet = $(`<article class="tweet"></article>`);
   let $tweetContent = $(`
@@ -80,6 +57,11 @@ const loadTweets = function () {
 };
 loadTweets();
 
+// Various functions that are only available when the document is ready
+// Will hide the error upon load
+// Uses conditionals to check if tweet submission is valid
+// Will load the tweet to the tweet-container if passes conditonal checks
+// Error handling will show if error occurrs
 $(document).ready(function () {
   $(".error").hide();
   $("#submit-tweet").on("submit", function (event) {
@@ -103,8 +85,6 @@ $(document).ready(function () {
           $("textarea").val("");
           let newTweet = createTweetElement(res);
           $("#tweets-container").prepend(newTweet);
-          //$("#tweets-container").html('');
-          //loadTweets();
         },
       });
     }
