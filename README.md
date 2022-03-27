@@ -1,5 +1,4 @@
 # Tweeter Project
-
 Tweeter is a simple, single-page Twitter clone.
 
 This project was built at part of my studies at Lighthouse Labs. Most of the work done to this was on the front-end, using HTML, CSS, jQuery and AJAX.
@@ -28,6 +27,5 @@ This project was built at part of my studies at Lighthouse Labs. Most of the wor
 - Previous tweets are seen below the submit tweet textbox
 
 ## Dependencies
-
 - Express
 - Node 5.10.x or above
