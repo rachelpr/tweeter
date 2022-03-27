@@ -5,7 +5,11 @@ Tweeter is a simple, single-page Twitter clone.
 This project was built at part of my studies at Lighthouse Labs. Most of the work done to this was on the front-end, using HTML, CSS, jQuery and AJAX.
 
 ## Final Product
-
+!["Screenshot of desktop view"](./README-imgs/desktop-shot.png)
+!["Screenshot of mobile view"](./README-imgs/mobile-shot-1.png)
+!["Screenshot of Tweets"](./README-imgs/tweet-shot.png)
+!["Screenshot of Error 1"](./README-imgs/mobile-shot-1.png)
+!["Screenshot of Error 2"](./README-imgs/error-shot-2.png)
 
 ## Getting Started
 
