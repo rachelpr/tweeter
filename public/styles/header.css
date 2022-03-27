@@ -14,3 +14,7 @@
   display: flex;
   justify-content: center;
 }
+
+.site-header img {
+  padding-top: 1.5em;
+}
