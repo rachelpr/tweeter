@@ -1,6 +1,6 @@
-// function to track key events in the textarea
-// uses charCount to show how many characters are left in the output tag
-// with help from @MGS31
+// Function to track key events in the textarea
+// Uses charCount to show how many characters are left in the output tag
+// With help from @MGS31
 $(document).ready(function () {
   $("textarea").keyup(function () {
     let $tweet = $(this).val();
