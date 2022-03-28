@@ -32,6 +32,7 @@ header {
 
 .tweet-text p {
   font-weight: bold;
+  word-break: break-all;
 }
 
 footer {
