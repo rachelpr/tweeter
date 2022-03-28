@@ -1,4 +1,4 @@
-form {
+#submit-tweet {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@ form {
   padding-top: 1.5em;
   padding-bottom: 1.5em;
 }
-button {
+.tweet-button {
   display: flex;
   align-items: center;
   background-color: #4056a1;
@@ -19,13 +19,13 @@ button {
   border-radius: 50%;
 }
 
-output {
+.counter {
   display: flex;
   align-items: center;
   font-family: "Bungee", cursive;
 }
 
-textarea {
+#tweet-text {
   resize: none;
   background-color: #f4f1ec;
   border: none;
