@@ -34,3 +34,6 @@ This project was built at part of my studies at Lighthouse Labs. Most of the wor
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- chance
+- md5
