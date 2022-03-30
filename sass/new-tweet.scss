@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 #submit-tweet {
   display: flex;
   flex-direction: column;
@@ -13,7 +15,7 @@
 .tweet-button {
   display: flex;
   align-items: center;
-  background-color: #4056a1;
+  background-color: $main-colour;
   color: white;
   font-family: "Bungee", cursive;
   border-radius: 50%;
